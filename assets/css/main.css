@@ -1,0 +1,132 @@
+a {
+  color: #333;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #333;
+}
+
+.active {
+  background-color: #333 !important;
+  color: white !important;
+  border: #333;
+}
+
+.nav-active {
+  border-bottom: #9eb7e6 3px solid;
+  transition: border-bottom 0.3s ease;
+}
+
+/* Utils */
+.pointer {
+  cursor: pointer;
+}
+
+.float-left {
+  float: left !important;
+  margin: 0;
+}
+
+.float-right {
+  float: right !important;
+  margin: 0;
+}
+
+.float-center {
+  float: center !important;
+  margin: 0;
+}
+
+.grey {
+  color: rgb(148, 148, 148);
+}
+
+.bold-grey {
+  color: #333;
+  font-weight: bolder;
+}
+
+/* New Mail */
+.new-mail-btn {
+  background-color: #027bfe;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+
+/* Read/Unread */
+.read-unread-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.read-unread-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.read-unread-outer::before {
+  content: '\f0e0';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #ccc;
+}
+
+.read-unread-inner::before {
+  content: '\f0e0';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #027bfe;
+}
+
+.read-unread-grey {
+  color: #ccc;
+}
+
+.read-unread-yellow {
+  color: #027bfe;
+}
+
+/* Stars */
+.stars-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.stars-outer::before {
+  content: '\f005';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #ccc;
+}
+
+.stars-inner::before {
+  content: '\f005';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #f8ce0b;
+}
+
+.star-grey {
+  color: #ccc;
+}
+
+.star-yellow {
+  color: #f8ce0b;
+}
