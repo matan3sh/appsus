@@ -2,9 +2,11 @@ const MailSideMenu = ({
   showInbox,
   showSent,
   showImportant,
+  showTrash,
   displayInbox,
   displaySent,
   displayImportant,
+  displayTrash,
   unReadLength,
 }) => {
   return (
@@ -37,7 +39,10 @@ const MailSideMenu = ({
         <i className='fas fa-exclamation-circle'></i> Spam{' '}
         <span className='badge badge-danger'>154 New</span>
       </a>
-      <a href='#' className='list-group-item disabled'>
+      <a
+        className={`list-group-item ${showTrash ? 'active' : ''} pointer`}
+        onClick={() => displayTrash()}
+      >
         <i className='fas fa-trash'></i> Trash
       </a>
     </div>

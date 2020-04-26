@@ -1,26 +1,10 @@
 const { Link } = ReactRouterDOM;
 
-export default class ImportantPreview extends React.Component {
-  state = {
-    setRead: this.props.mail.read ? true : false,
-    setTrash: this.props.mail.trash ? true : false,
-  };
+export default class TrashPreview extends React.Component {
   render() {
-    const { mail, setRead, setTrash } = this.props;
+    const { mail } = this.props;
     return (
       <div className='list-group-item list-group-item-action'>
-        <span
-          className='float-right pointer'
-          onClick={() => {
-            this.setState((prevState) => ({
-              setTrash: !prevState.setTrash,
-            }));
-
-            setTrash(mail, this.state.setTrash);
-          }}
-        >
-          X
-        </span>
         <Link to={`/mail/${mail.id}`}>
           <div className='d-flex w-100 justify-content-between'>
             <h5 className='mb-1'>{mail.subject}</h5>
@@ -32,22 +16,22 @@ export default class ImportantPreview extends React.Component {
           <span className='bold-grey'>From:</span> {mail.from}
         </small>
         <small style={{ float: 'right' }}>
-          <div
+          {/* <div
             className='read-unread-outer pointer mr-2'
             style={{ fontSize: '24px' }}
             onClick={() => {
               this.setState((prevState) => ({
-                setRead: !prevState.setRead,
+                setTrash: !prevState.setTrash,
               }));
 
-              setRead(mail, this.state.setRead);
+              onDelete(mail, this.state.setTrash);
             }}
           >
             <div
               className='read-unread-inner'
-              style={{ width: this.state.setRead ? '100%' : '0%' }}
+              style={{ width: this.state.setTrash ? '100%' : '0%' }}
             ></div>
-          </div>
+          </div> */}
         </small>
       </div>
     );

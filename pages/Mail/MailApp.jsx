@@ -11,6 +11,7 @@ export default class MailApp extends React.Component {
     showSent: false,
     showImportant: false,
     showSentMailForm: false,
+    showTrash: false,
     filterBy: null,
   };
 
@@ -25,15 +26,39 @@ export default class MailApp extends React.Component {
   };
 
   displayInbox = () => {
-    this.setState({ showInbox: true, showSent: false, showImportant: false });
+    this.setState({
+      showInbox: true,
+      showSent: false,
+      showImportant: false,
+      showTrash: false,
+    });
   };
 
   displaySent = () => {
-    this.setState({ showInbox: false, showSent: true, showImportant: false });
+    this.setState({
+      showInbox: false,
+      showSent: true,
+      showImportant: false,
+      showTrash: false,
+    });
   };
 
   displayImportant = () => {
-    this.setState({ showInbox: false, showSent: false, showImportant: true });
+    this.setState({
+      showInbox: false,
+      showSent: false,
+      showImportant: true,
+      showTrash: false,
+    });
+  };
+
+  displayTrash = () => {
+    this.setState({
+      showInbox: false,
+      showSent: false,
+      showImportant: false,
+      showTrash: true,
+    });
   };
 
   setImportant = (mail, isImportant) => {
@@ -44,6 +69,15 @@ export default class MailApp extends React.Component {
 
   setRead = (mail, isRead) => {
     mail.read = !isRead;
+    mailService.save(mail);
+    this.loadMails();
+  };
+
+  setTrash = (mail, isTrash) => {
+    mail.trash = !isTrash;
+    mail.inbox = false;
+    mail.important = false;
+    mail.sent = false;
     mailService.save(mail);
     this.loadMails();
   };
@@ -63,6 +97,7 @@ export default class MailApp extends React.Component {
       showInbox,
       showSent,
       showImportant,
+      showTrash,
       showSentMailForm,
     } = this.state;
     return (
@@ -76,9 +111,11 @@ export default class MailApp extends React.Component {
                 showInbox={showInbox}
                 showSent={showSent}
                 showImportant={showImportant}
+                showTrash={showTrash}
                 displayInbox={this.displayInbox}
                 displaySent={this.displaySent}
                 displayImportant={this.displayImportant}
+                displayTrash={this.displayTrash}
                 unReadLength={unReadLength}
               />
               <div className='text-center mt-2'>
@@ -97,8 +134,10 @@ export default class MailApp extends React.Component {
                   showInbox={showInbox}
                   showSent={showSent}
                   showImportant={showImportant}
+                  showTrash={showTrash}
                   setImportant={this.setImportant}
                   setRead={this.setRead}
+                  setTrash={this.setTrash}
                   mails={mails}
                 />
               )}
