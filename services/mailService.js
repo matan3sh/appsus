@@ -7,6 +7,7 @@ export default {
   getNextPrevMail,
   getUnReadLength,
   getAvaliableSpace,
+  sentMail,
 };
 
 const KEY = 'mails';
@@ -38,6 +39,11 @@ function save(mail) {
   storageService.store(KEY, gMails);
 }
 
+function sentMail(mail) {
+  gMails.unshift(mail);
+  storageService.store(KEY, gMails);
+}
+
 function getById(mailId) {
   const mail = gMails.find((mail) => mail.id === mailId);
   return Promise.resolve(mail);
@@ -66,7 +72,9 @@ function getNextPrevMail(mailId) {
 }
 
 function getUnReadLength() {
-  const unReadMails = gMails.filter((mail) => !mail.read && mail.important);
+  const unReadMails = gMails.filter(
+    (mail) => (mail.inbox || mail.important) && !mail.read
+  );
   return unReadMails.length;
 }
 

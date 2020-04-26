@@ -15,7 +15,9 @@ export default class ImportantPreview extends React.Component {
           </div>
           <p className='mb-1'>{mail.message}</p>
         </Link>
-        <small>From: {mail.from}</small>
+        <small>
+          <span className='bold-grey'>From:</span> {mail.from}
+        </small>
         <small style={{ float: 'right' }}>
           <div
             className='read-unread-outer pointer mr-2'

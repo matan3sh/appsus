@@ -37,7 +37,7 @@ export default class MailDetails extends React.Component {
           className='btn btn-primary mt-3'
           onClick={() => this.props.history.goBack()}
         >
-          Back
+          Previous Page
         </button>
         <div className='card text-center mt-3'>
           <div className='card-header'>
@@ -59,13 +59,17 @@ export default class MailDetails extends React.Component {
               From {mail.from} in {new Date(mail.sentAt).toDateString()}
             </h5>
           </div>
-          <div className='card-body'>
+          <div className='card-body text-left'>
             <p className='card-text'>{mail.message}</p>
-            <a href='#' className='btn btn-primary'>
-              Go somewhere
-            </a>
           </div>
-          <div className='card-footer text-muted'></div>
+          <div className='card-footer text-muted'>
+            <Link to={`/mail/${this.prevNext.prevId}`}>
+              <button className='btn btn-dark'>Previous Maill</button>
+            </Link>{' '}
+            <Link to={`/mail/${this.prevNext.nextId}`}>
+              <button className='btn btn-dark'>Next Mail</button>
+            </Link>{' '}
+          </div>
         </div>
       </React.Fragment>
     );

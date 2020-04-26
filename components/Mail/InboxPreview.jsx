@@ -15,7 +15,9 @@ export default class InboxPreview extends React.Component {
             <small>{new Date(mail.sentAt).toDateString()}</small>
           </div>
           <p className='mb-1'>{mail.message}</p>
-          <small>From: {mail.from}</small>
+          <small>
+            <span className='bold-grey'>From:</span> {mail.from}
+          </small>
         </Link>
         <small className='pointer' style={{ float: 'right' }}>
           <div

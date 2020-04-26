@@ -9,7 +9,9 @@ const SentPreview = ({ mail }) => {
           <small>{new Date(mail.sentAt).toDateString()}</small>
         </div>
         <p className='mb-1'>{mail.message}</p>
-        <small>From: {mail.from}</small>
+        <small>
+          <span className='bold-grey'>From:</span> {mail.from}
+        </small>
       </div>
     </Link>
   );
