@@ -32,6 +32,17 @@ const gDefaultMails = [
     important: true,
     read: false,
   },
+  {
+    id: 'AAAHBKOkq589',
+    subject: 'Title Mail Number 4',
+    message: 'Digital Media and Technological Determinism2',
+    from: 'Gmail',
+    sentAt: Date.now(),
+    inbox: false,
+    sent: true,
+    important: false,
+    read: false,
+  },
 ];
 
 function getDefaultData() {

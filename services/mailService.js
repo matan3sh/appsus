@@ -6,6 +6,7 @@ export default {
   getById,
   getNextPrevMail,
   getUnReadLength,
+  getAvaliableSpace,
 };
 
 const KEY = 'mails';
@@ -66,7 +67,14 @@ function getNextPrevMail(mailId) {
 
 function getUnReadLength() {
   const unReadMails = gMails.filter((mail) => !mail.read);
-  return unReadMails.length - 1;
+  return unReadMails.length;
+}
+
+function getAvaliableSpace() {
+  return {
+    percentage: (gMails.length * 100) / 10,
+    current: gMails.length,
+  };
 }
 
 function _getIdxById(mailId) {
