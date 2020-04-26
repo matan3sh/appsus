@@ -66,7 +66,7 @@ function getNextPrevMail(mailId) {
 }
 
 function getUnReadLength() {
-  const unReadMails = gMails.filter((mail) => !mail.read);
+  const unReadMails = gMails.filter((mail) => !mail.read && mail.important);
   return unReadMails.length;
 }
 
