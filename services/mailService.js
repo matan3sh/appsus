@@ -8,6 +8,7 @@ export default {
   getUnReadLength,
   getAvaliableSpace,
   sentMail,
+  remove,
 };
 
 const KEY = 'mails';
@@ -36,6 +37,12 @@ function save(mail) {
   } else {
     gMails.push(mail);
   }
+  storageService.store(KEY, gMails);
+}
+
+function remove(mail) {
+  const mailIdx = _getIdxById(mail.id);
+  gMails.splice(mailIdx, 1);
   storageService.store(KEY, gMails);
 }
 

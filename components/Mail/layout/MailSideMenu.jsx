@@ -21,7 +21,6 @@ const MailSideMenu = ({
         ) : (
           ''
         )}
-        {/* <span className='badge badge-primary'>2 New</span> */}
       </a>
       <a
         className={`list-group-item ${showImportant ? 'active' : ''} pointer`}

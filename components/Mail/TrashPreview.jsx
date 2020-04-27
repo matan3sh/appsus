@@ -1,8 +1,11 @@
 const { Link } = ReactRouterDOM;
 
 export default class TrashPreview extends React.Component {
+  state = {
+    setBack: this.props.mail.preMode ? true : false,
+  };
   render() {
-    const { mail } = this.props;
+    const { mail, setBack, onRemoveMail } = this.props;
     return (
       <div className='list-group-item list-group-item-action'>
         <Link to={`/mail/${mail.id}`}>
@@ -16,22 +19,23 @@ export default class TrashPreview extends React.Component {
           <span className='bold-grey'>From:</span> {mail.from}
         </small>
         <small style={{ float: 'right' }}>
-          {/* <div
-            className='read-unread-outer pointer mr-2'
-            style={{ fontSize: '24px' }}
-            onClick={() => {
-              this.setState((prevState) => ({
-                setTrash: !prevState.setTrash,
-              }));
-
-              onDelete(mail, this.state.setTrash);
-            }}
+          <span
+            className='float-right pointer text-danger'
+            onClick={() => onRemoveMail(mail)}
           >
-            <div
-              className='read-unread-inner'
-              style={{ width: this.state.setTrash ? '100%' : '0%' }}
-            ></div>
-          </div> */}
+            <i className='fas fa-calendar-times' style={{ fontSize: '22px' }} />
+          </span>
+          <span
+            className='float-right pointer text-success pr-2'
+            onClick={() =>
+              this.setState((prevState) => {
+                ({ setBack: !prevState.setBack });
+                setBack(mail);
+              })
+            }
+          >
+            <i className='fas fa-undo' style={{ fontSize: '22px' }} />
+          </span>
         </small>
       </div>
     );

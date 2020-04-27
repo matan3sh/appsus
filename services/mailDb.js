@@ -11,6 +11,7 @@ const gDefaultMails = [
     important: false,
     read: false,
     trash: false,
+    preMode: '',
   },
   {
     id: 'YTj93KOkq589',
@@ -24,6 +25,7 @@ const gDefaultMails = [
     important: false,
     read: false,
     trash: false,
+    preMode: '',
   },
   {
     id: 'YUIO5KOkq589',
@@ -37,6 +39,7 @@ const gDefaultMails = [
     important: true,
     read: false,
     trash: false,
+    preMode: '',
   },
   {
     id: 'AAAHBKOkq589',
@@ -50,6 +53,7 @@ const gDefaultMails = [
     important: false,
     read: false,
     trash: false,
+    preMode: '',
   },
 ];
 

@@ -74,11 +74,27 @@ export default class MailApp extends React.Component {
   };
 
   setTrash = (mail, isTrash) => {
+    if (mail.inbox || mail.important) mail.preMode = 'inbox';
+    else if (mail.sent) mail.preMode = 'sent';
     mail.trash = !isTrash;
     mail.inbox = false;
     mail.important = false;
     mail.sent = false;
     mailService.save(mail);
+    this.loadMails();
+  };
+
+  setBack = (mail) => {
+    if (mail.preMode === 'inbox') mail.inbox = true;
+    else if (mail.preMode === 'sent') mail.sent = true;
+    mail.trash = false;
+    mail.preMode = '';
+    mailService.save(mail);
+    this.loadMails();
+  };
+
+  onRemoveMail = (mail) => {
+    mailService.remove(mail);
     this.loadMails();
   };
 
@@ -138,6 +154,8 @@ export default class MailApp extends React.Component {
                   setImportant={this.setImportant}
                   setRead={this.setRead}
                   setTrash={this.setTrash}
+                  setBack={this.setBack}
+                  onRemoveMail={this.onRemoveMail}
                   mails={mails}
                 />
               )}

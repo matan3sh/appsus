@@ -14,6 +14,8 @@ export default class SentMailForm extends React.Component {
       sent: true,
       important: false,
       read: false,
+      trash: false,
+      preMode: '',
     },
   };
 
@@ -45,6 +47,8 @@ export default class SentMailForm extends React.Component {
         sent: true,
         important: false,
         read: false,
+        trash: false,
+        preMode: '',
       },
     });
     this.props.closeForm();
@@ -53,13 +57,13 @@ export default class SentMailForm extends React.Component {
   render() {
     return (
       <div className='row form-border mt-4 text-center'>
-        <div className='col-11'>
-          <h2>Send Email</h2>
-        </div>
-        <div className='col-1'>
-          <button className='btn btn-dark' onClick={this.props.closeForm}>
-            X
-          </button>
+        <div className='col-12'>
+          <div className='float-right'>
+            <button className='btn btn-dark' onClick={this.props.closeForm}>
+              X
+            </button>
+          </div>
+          <h2>Send New Email</h2>
         </div>
         <div className='col-12 mt-5'>
           <form onSubmit={this.onSubmit}>

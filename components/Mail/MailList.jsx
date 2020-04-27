@@ -12,6 +12,8 @@ const MailList = ({
   setImportant,
   setRead,
   setTrash,
+  setBack,
+  onRemoveMail,
 }) => {
   if (showInbox) {
     let inboxMails = mails.filter((mail) => mail.inbox);
@@ -59,7 +61,12 @@ const MailList = ({
     return (
       <div className='list-group'>
         {trashMails.map((mail) => (
-          <TrashPreview key={mail.id} mail={mail} />
+          <TrashPreview
+            key={mail.id}
+            mail={mail}
+            setBack={setBack}
+            onRemoveMail={onRemoveMail}
+          />
         ))}
       </div>
     );
