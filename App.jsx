@@ -3,6 +3,7 @@ const { Route, Switch } = ReactRouterDOM;
 const history = History.createBrowserHistory();
 
 import Navbar from './components/layout/Navbar.jsx';
+import UserMsg from './components/layout/UserMsg.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import MailApp from './pages/Mail/MailApp.jsx';
@@ -27,7 +28,7 @@ export class App extends React.Component {
               history={history}
             />
           </Switch>
-          {/* <UserMsg /> */}
+          <UserMsg />
         </div>
       </Router>
     );

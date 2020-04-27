@@ -1,3 +1,5 @@
+import eventBus from '../../services/eventBusService.js';
+
 const { Link } = ReactRouterDOM;
 
 export default class TrashPreview extends React.Component {
@@ -37,7 +39,13 @@ export default class TrashPreview extends React.Component {
             <small style={{ float: 'right' }}>
               <span
                 className='float-right pointer text-danger'
-                onClick={() => onRemoveMail(mail)}
+                onClick={() => {
+                  eventBus.emit('show-msg', {
+                    txt: 'Email Removed Successfully',
+                    body: '',
+                  });
+                  onRemoveMail(mail);
+                }}
               >
                 <i
                   className='fas fa-calendar-times'

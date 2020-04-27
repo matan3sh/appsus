@@ -1,3 +1,4 @@
+import eventBus from '../../services/eventBusService.js';
 import utilService from '../../services/utilService.js';
 import mailService from '../../services/mailService.js';
 
@@ -97,7 +98,17 @@ export default class SentMailForm extends React.Component {
                 onChange={this.onChange}
               />
             </div>
-            <button className='btn btn-dark btn-block mb-3'>Send</button>
+            <button
+              className='btn btn-dark btn-block mb-3'
+              onClick={() => {
+                eventBus.emit('show-msg', {
+                  txt: 'Email Sent Successfully',
+                  body: '',
+                });
+              }}
+            >
+              Send
+            </button>
           </form>
         </div>
       </div>
