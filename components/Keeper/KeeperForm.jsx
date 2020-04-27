@@ -12,26 +12,35 @@ export default class KeeperForm extends React.Component {
     isTodos: false,
   };
 
-  onSaveText = () => {};
+  onSaveText = (noteText) => {
+    keeperService.save(noteText);
+    this.props.onUpdateNotes();
+  };
 
   onSaveImage = (noteImg) => {
     keeperService.save(noteImg);
     this.props.onUpdateNotes();
   };
 
-  onSaveVideo = () => {};
+  onSaveVideo = (noteVideo) => {
+    keeperService.save(noteVideo);
+    this.props.onUpdateNotes();
+  };
 
-  onSaveTodos = () => {};
+  onSaveTodos = (noteTodos) => {
+    keeperService.save(noteTodos);
+    this.props.onUpdateNotes();
+  };
 
   render() {
     const { isText, isImage, isVideo, isTodos } = this.state;
     return (
       <div className='row mt-5 card-form'>
         <div className='col-8'>
-          {isText && <FormText />}
+          {isText && <FormText onSaveText={this.onSaveText} />}
           {isImage && <FormImage onSaveImage={this.onSaveImage} />}
-          {isVideo && <FormVideo />}
-          {isTodos && <FormTodos />}
+          {isVideo && <FormVideo onSaveVideo={this.onSaveVideo} />}
+          {isTodos && <FormTodos onSaveTodos={this.onSaveTodos} />}
         </div>
         <div className='col-4' style={{ marginTop: '21px' }}>
           <button

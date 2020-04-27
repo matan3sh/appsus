@@ -18,17 +18,26 @@ export default class Home extends React.Component {
         <div className='carousel-inner'>
           <div className='carousel-item active'>
             <img
-              className='d-block w-100'
-              src='https://via.placeholder.com/640x360'
-              alt='First slide'
+              src='https://lh3.googleusercontent.com/proxy/U0MEkkQkGjaoNgcSFeDAfYhIP3nChg2P0Gp9GHplYxFRob89erqhUBlFZAM7aWKI993fstauVL1ry6fbCcrC-DrBd2_lWt1iGMFQ9HwGj69w3A1gGU_ybpReYBo-4rj7xVkjnUrE0xIqSlh798j8UuXz6qmTThkVNj6itA'
+              alt='...'
             />
+            <div className='carousel-caption d-none d-md-block'>
+              <h5>Appsus - All Apps In One Place</h5>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta,
+                quae?
+              </p>
+            </div>
           </div>
           <div className='carousel-item'>
-            <img
-              className='d-block w-100'
-              src='https://via.placeholder.com/640x360'
-              alt='Second slide'
-            />
+            <img src='https://via.placeholder.com/640x360' alt='...' />
+            <div className='carousel-caption d-none d-md-block'>
+              <h5>Check Out Our Best Deals</h5>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta,
+                quae?
+              </p>
+            </div>
           </div>
           <div className='carousel-item'>
             <img

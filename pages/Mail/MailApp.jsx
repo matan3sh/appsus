@@ -153,7 +153,7 @@ export default class MailApp extends React.Component {
                   <div className='text-center mt-1'>
                     <button
                       className='btn btn-primary btn-sm'
-                      style={{ width: '40px', margin: '0' }}
+                      style={{ width: '40px', margin: '0', marginTop: '20px' }}
                       onClick={() => this.setState({ showSentMailForm: true })}
                     >
                       <i className='fas fa-envelope-square' />

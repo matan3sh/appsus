@@ -45,7 +45,7 @@ const Navbar = ({ title, icon }) => {
               to='/keeper'
               className='nav-link'
             >
-              Kepeer
+              Keeper
             </NavLink>
           </li>
           <li className='nav-item'>

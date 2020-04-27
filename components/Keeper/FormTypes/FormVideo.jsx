@@ -1,22 +1,80 @@
-const FormVideo = () => {
-  return (
-    <form>
-      <div className='form-group'>
-        <input type='text' className='form-control' placeholder='Add Text' />
-        <input
-          type='text'
-          className='form-control mt-2'
-          placeholder='Add Video URL'
-        />
-        <button
-          className='btn btn-dark mt-1'
-          style={{ height: '40px', marginRight: '35px' }}
-        >
-          Add Note
-        </button>
-      </div>
-    </form>
-  );
-};
+import utilService from '../../../services/utilService.js';
 
-export default FormVideo;
+export default class FormVideo extends React.Component {
+  state = {
+    video: {
+      id: '',
+      type: '',
+      info: {
+        url: '',
+        title: '',
+      },
+      style: { backgroundColor: '#' },
+    },
+  };
+
+  onChange = ({ target }) => {
+    const field = target.name;
+    const value = target.value;
+    this.setState((prevState) => {
+      return {
+        video: {
+          id: utilService.makeId(),
+          type: 'NoteVideo',
+          info: {
+            ...prevState.video.info,
+            [field]: value,
+          },
+          style: { backgroundColor: '#0046a5' },
+        },
+      };
+    });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSaveVideo(this.state.video);
+    this.setState({
+      video: {
+        id: utilService.makeId(),
+        type: 'NoteVideo',
+        info: {
+          url: '',
+          title: '',
+        },
+        style: { backgroundColor: '' },
+      },
+    });
+  };
+
+  render() {
+    return (
+      <form onSubmit={this.onSubmit}>
+        <div className='form-group'>
+          <input
+            name='title'
+            type='text'
+            className='form-control'
+            placeholder='Add Text'
+            value={this.state.video.info.title}
+            onChange={this.onChange}
+          />
+          <input
+            name='url'
+            type='text'
+            className='form-control '
+            placeholder='Add Video URL'
+            value={this.state.video.info.url}
+            onChange={this.onChange}
+          />
+          <button
+            className='btn btn-dark '
+            style={{ height: '40px', marginRight: '35px' }}
+          >
+            Add Note
+          </button>
+        </div>
+      </form>
+    );
+  }
+}
