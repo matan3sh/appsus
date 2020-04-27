@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import utilService from '../../../services/utilService.js';
-=======
-import utilService from '../../../services/utilService.js'
->>>>>>> 89749fd4febef13c017163b7598f606829ee2d96
 
 export default class FormTodos extends React.Component {
   state = {
@@ -11,13 +7,7 @@ export default class FormTodos extends React.Component {
       type: '',
       info: {
         label: '',
-<<<<<<< HEAD
         todos: [{ txt: '', doneAt: '' }],
-=======
-        todos: [
-          { txt: '', doneAt: ''} 
-        ] 
->>>>>>> 89749fd4febef13c017163b7598f606829ee2d96
       },
       style: { backgroundColor: '#' },
     },
@@ -34,7 +24,6 @@ export default class FormTodos extends React.Component {
           info: {
             ...prevState.todos.info,
             [field]: value,
-<<<<<<< HEAD
             todos: [
               {
                 ...prevState.todos.info,
@@ -42,25 +31,12 @@ export default class FormTodos extends React.Component {
               },
             ],
           },
-=======
-            todos: [{
-
-              ...prevState.todos.info,
-              [field]: value,
-            }
-            ]
-          }, 
->>>>>>> 89749fd4febef13c017163b7598f606829ee2d96
           style: { backgroundColor: '#0031a2' },
         },
       };
     });
   };
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 89749fd4febef13c017163b7598f606829ee2d96
   onSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
@@ -72,13 +48,7 @@ export default class FormTodos extends React.Component {
         type: 'NoteTodos',
         info: {
           label: '',
-<<<<<<< HEAD
           todos: [{ txt: '', doneAt: '' }],
-=======
-          todos: [
-            { txt: '', doneAt: ''} 
-          ] 
->>>>>>> 89749fd4febef13c017163b7598f606829ee2d96
         },
         style: { backgroundColor: '' },
       },
