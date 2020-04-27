@@ -21,11 +21,31 @@ function _createMails() {
   storageService.store(KEY, gMails);
 }
 
+// function query(filterBy) {
+//   let mails = gMails;
+//   if (filterBy) {
+//     let { subject } = filterBy;
+//     mails = gMails.filter((mail) =>
+//       mail.subject.toUpperCase().includes(subject.toUpperCase())
+//     );
+//   }
+//   return Promise.resolve(mails);
+// }
+
 function query(filterBy) {
   let mails = gMails;
-  if (filterBy) {
+  if (typeof filterBy === Object) {
     let { subject } = filterBy;
-    mails = gMails.filter((mail) => mail.subject.includes(subject));
+    mails = gMails.filter((mail) =>
+      mail.subject.toUpperCase().includes(subject.toUpperCase())
+    );
+    return Promise.resolve(mails);
+  } else if (filterBy === 'Read') {
+    mails = gMails.filter((mail) => mail.read);
+    return Promise.resolve(mails);
+  } else if (filterBy === 'Unread') {
+    mails = gMails.filter((mail) => !mail.read);
+    return Promise.resolve(mails);
   }
   return Promise.resolve(mails);
 }

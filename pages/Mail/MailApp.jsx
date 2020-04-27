@@ -3,6 +3,8 @@ import ProgressBar from '../../components/layout/ProgressBar.jsx';
 import MailSideMenu from '../../components/Mail/layout/MailSideMenu.jsx';
 import MailList from '../../components/Mail/MailList.jsx';
 import SentMailForm from '../../components/Mail/SentMailForm.jsx';
+import MailFilter from '../../components/Mail/MailFilter.jsx';
+import MailFilterBy from '../../components/Mail/MailFilterBy.jsx';
 
 export default class MailApp extends React.Component {
   state = {
@@ -13,6 +15,7 @@ export default class MailApp extends React.Component {
     showSentMailForm: false,
     showTrash: false,
     filterBy: null,
+    filterByCategory: '',
   };
 
   componentDidMount() {
@@ -23,6 +26,10 @@ export default class MailApp extends React.Component {
     mailService
       .query(this.state.filterBy)
       .then((mails) => this.setState({ mails }));
+  };
+
+  onSetFilter = (filterBy) => {
+    this.setState({ filterBy }, () => this.loadMails());
   };
 
   displayInbox = () => {
@@ -128,6 +135,22 @@ export default class MailApp extends React.Component {
         ) : (
           <div className='row mt-5'>
             <div className='col-3'>
+              <div className='row'>
+                <div className='col-9'>
+                  <MailFilter onSetFilter={this.onSetFilter} />
+                </div>
+                <div className='col-3'>
+                  <div className='text-center mt-1'>
+                    <button
+                      className='btn btn-primary btn-sm'
+                      style={{ width: '40px', margin: '0' }}
+                      onClick={() => this.setState({ showSentMailForm: true })}
+                    >
+                      <i className='fas fa-envelope-square' />
+                    </button>
+                  </div>
+                </div>
+              </div>
               <MailSideMenu
                 showInbox={showInbox}
                 showSent={showSent}
@@ -139,17 +162,11 @@ export default class MailApp extends React.Component {
                 displayTrash={this.displayTrash}
                 unReadLength={unReadLength}
               />
-              <div className='text-center mt-2'>
-                <button
-                  className='new-mail-btn'
-                  onClick={() => this.setState({ showSentMailForm: true })}
-                >
-                  <i className='fas fa-plus' /> New Mail
-                </button>
-              </div>
+
               <ProgressBar space={this.getAvaliableSpace()} />
             </div>
             <div className='col-9'>
+              <MailFilterBy onSetFilter={this.onSetFilter} />
               {mails && (
                 <MailList
                   showInbox={showInbox}

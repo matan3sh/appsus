@@ -10,7 +10,7 @@ export default class TrashPreview extends React.Component {
       <div className='list-group-item list-group-item-action'>
         <div className='row'>
           <div className='col-2'>
-            <span class='avatar bg-danger'>
+            <span className='avatar bg-danger'>
               <p>{mail.from.slice(0, 2)}</p>
             </span>
           </div>

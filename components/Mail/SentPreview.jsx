@@ -23,7 +23,7 @@ export default class SentPreview extends React.Component {
         </span>
         <div className='row'>
           <div className='col-2'>
-            <span class='avatar bg-info'>
+            <span className='avatar bg-info'>
               <p>{mail.from.slice(0, 2)}</p>
             </span>
           </div>

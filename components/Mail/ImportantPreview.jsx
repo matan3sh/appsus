@@ -23,7 +23,7 @@ export default class ImportantPreview extends React.Component {
         </span>
         <div className='row'>
           <div className='col-2'>
-            <span class='avatar bg-warning'>
+            <span className='avatar bg-warning'>
               <p>{mail.from.slice(0, 2)}</p>
             </span>
           </div>

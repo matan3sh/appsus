@@ -24,7 +24,7 @@ export default class InboxPreview extends React.Component {
         </span>
         <div className='row'>
           <div className='col-2'>
-            <span class='avatar'>
+            <span className='avatar'>
               <p>{mail.from.slice(0, 2)}</p>
             </span>
           </div>
