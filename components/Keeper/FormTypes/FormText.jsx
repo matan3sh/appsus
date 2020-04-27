@@ -32,7 +32,6 @@ export default class FormText extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(456);
     this.props.onSaveText(this.state.text);
     this.setState({
       text: {

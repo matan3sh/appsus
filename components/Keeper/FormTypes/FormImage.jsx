@@ -63,13 +63,13 @@ export default class FormImage extends React.Component {
           <input
             name='url'
             type='text'
-            className='form-control mt-2'
+            className='form-control'
             placeholder='Add Image URL'
             value={this.state.image.info.url}
             onChange={this.onChange}
           />
           <button
-            className='btn btn-dark mt-1'
+            className='btn btn-dark'
             style={{ height: '40px', marginRight: '35px' }}
           >
             Add Note

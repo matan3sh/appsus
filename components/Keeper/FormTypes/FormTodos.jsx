@@ -3,13 +3,8 @@ import utilService from '../../../services/utilService.js';
 export default class FormTodos extends React.Component {
   state = {
     todos: {
-      id: '',
-      type: '',
-      info: {
-        label: '',
-        todos: [{ txt: '', doneAt: '' }],
-      },
-      style: { backgroundColor: '#' },
+      txt: '',
+      label: '',
     },
   };
 
@@ -19,19 +14,8 @@ export default class FormTodos extends React.Component {
     this.setState((prevState) => {
       return {
         todos: {
-          id: utilService.makeId(),
-          type: 'NoteTodos',
-          info: {
-            ...prevState.todos.info,
-            [field]: value,
-            todos: [
-              {
-                ...prevState.todos.info,
-                [field]: value,
-              },
-            ],
-          },
-          style: { backgroundColor: '#0031a2' },
+          ...prevState.todos,
+          [field]: value,
         },
       };
     });
@@ -39,20 +23,21 @@ export default class FormTodos extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    e.target.reset();
-    console.log(789);
-    this.props.onSaveTodos(this.state.todos);
-    this.setState({
-      todos: {
-        id: utilService.makeId(),
-        type: 'NoteTodos',
-        info: {
-          label: '',
-          todos: [{ txt: '', doneAt: '' }],
-        },
-        style: { backgroundColor: '' },
+    let todos = this.state.todos.txt.split(',');
+    let tempObj = [];
+    for (let i = 0; i < todos.length; i++) {
+      tempObj.push({ txt: todos[i], doneAt: null });
+    }
+    const todosObj = {
+      id: utilService.makeId(),
+      type: 'NoteTodos',
+      info: {
+        label: this.state.todos.label,
+        todos: tempObj,
       },
-    });
+    };
+    this.props.onSaveTodos(todosObj);
+    this.setState({ todos: { txt: '', label: '' } });
   };
 
   render() {
@@ -64,7 +49,7 @@ export default class FormTodos extends React.Component {
             type='text'
             className='form-control'
             placeholder='Add Label'
-            value={this.state.todos.info.todos.label}
+            value={this.state.todos.label}
             onChange={this.onChange}
           />
           <input
@@ -72,7 +57,7 @@ export default class FormTodos extends React.Component {
             type='text'
             className='form-control '
             placeholder='Add Todo'
-            value={this.state.todos.info.todos.txt}
+            value={this.state.todos.txt}
             onChange={this.onChange}
           />
           <button
