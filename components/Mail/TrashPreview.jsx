@@ -20,7 +20,16 @@ export default class TrashPreview extends React.Component {
                 <h5 className='mb-1'>{mail.subject}</h5>
                 <small>{new Date(mail.sentAt).toDateString()}</small>
               </div>
-              <p className='mb-1'>{mail.message}</p>
+              <p className='mb-1'>
+                {mail.message.length > 60 ? (
+                  <span>
+                    {mail.message.slice(0, 60)}{' '}
+                    <span className='small-font'>...Continue Reading</span>
+                  </span>
+                ) : (
+                  mail.message
+                )}
+              </p>
             </Link>
             <small>
               <span className='bold-grey'>From:</span> {mail.from}

@@ -62,6 +62,11 @@ a:hover {
   font-weight: bolder;
 }
 
+.small-font {
+  font-size: 10px;
+  color: #333;
+}
+
 /* New Mail */
 .new-mail-btn {
   background-color: #027bfe;

@@ -176,9 +176,13 @@ export default class MailApp extends React.Component {
               <ProgressBar space={this.getAvaliableSpace()} />
             </div>
             <div className='col-9'>
-              <MailFilterBy
-                onSetFilterByCategory={this.onSetFilterByCategory}
-              />
+              <div className='row'>
+                <div className='col-12'>
+                  <MailFilterBy
+                    onSetFilterByCategory={this.onSetFilterByCategory}
+                  />
+                </div>
+              </div>
               {mails && (
                 <MailList
                   showInbox={showInbox}
