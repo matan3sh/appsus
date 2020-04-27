@@ -21,34 +21,43 @@ export default class ImportantPreview extends React.Component {
         >
           X
         </span>
-        <Link to={`/mail/${mail.id}`}>
-          <div className='d-flex w-100 justify-content-between'>
-            <h5 className='mb-1'>{mail.subject}</h5>
-            <small>{new Date(mail.sentAt).toDateString()}</small>
+        <div className='row'>
+          <div className='col-2'>
+            <span class='avatar bg-warning'>
+              <p>{mail.from.slice(0, 2)}</p>
+            </span>
           </div>
-          <p className='mb-1'>{mail.message}</p>
-        </Link>
-        <small>
-          <span className='bold-grey'>From:</span> {mail.from}
-        </small>
-        <small style={{ float: 'right' }}>
-          <div
-            className='read-unread-outer pointer mr-2'
-            style={{ fontSize: '24px' }}
-            onClick={() => {
-              this.setState((prevState) => ({
-                setRead: !prevState.setRead,
-              }));
+          <div className='col-10'>
+            <Link to={`/mail/${mail.id}`}>
+              <div className='d-flex w-100 justify-content-between'>
+                <h5 className='mb-1'>{mail.subject}</h5>
+                <small>{new Date(mail.sentAt).toDateString()}</small>
+              </div>
+              <p className='mb-1'>{mail.message}</p>
+            </Link>
+            <small>
+              <span className='bold-grey'>From:</span> {mail.from}
+            </small>
+            <small style={{ float: 'right' }}>
+              <div
+                className='read-unread-outer pointer mr-2'
+                style={{ fontSize: '24px' }}
+                onClick={() => {
+                  this.setState((prevState) => ({
+                    setRead: !prevState.setRead,
+                  }));
 
-              setRead(mail, this.state.setRead);
-            }}
-          >
-            <div
-              className='read-unread-inner'
-              style={{ width: this.state.setRead ? '100%' : '0%' }}
-            ></div>
+                  setRead(mail, this.state.setRead);
+                }}
+              >
+                <div
+                  className='read-unread-inner'
+                  style={{ width: this.state.setRead ? '100%' : '0%' }}
+                ></div>
+              </div>
+            </small>
           </div>
-        </small>
+        </div>
       </div>
     );
   }

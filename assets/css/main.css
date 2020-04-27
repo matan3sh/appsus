@@ -145,3 +145,22 @@ a:hover {
 .star-yellow {
   color: #f8ce0b;
 }
+
+.avatar {
+  height: 80px;
+  width: 80px;
+  background-color: rgb(116, 154, 224);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.avatar p {
+  color: white;
+  font-size: 32px;
+  text-transform: uppercase;
+  position: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-top: 16px;
+}

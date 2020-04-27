@@ -22,50 +22,59 @@ export default class InboxPreview extends React.Component {
         >
           X
         </span>
-        <Link to={`/mail/${mail.id}`}>
-          <div className='d-flex w-100 justify-content-between'>
-            <h5 className='mb-1'>{mail.subject}</h5>
-            <small>{new Date(mail.sentAt).toDateString()}</small>
+        <div className='row'>
+          <div className='col-2'>
+            <span class='avatar'>
+              <p>{mail.from.slice(0, 2)}</p>
+            </span>
           </div>
-          <p className='mb-1'>{mail.message}</p>
-          <small>
-            <span className='bold-grey'>From:</span> {mail.from}
-          </small>
-        </Link>
-        <small className='pointer' style={{ float: 'right' }}>
-          <div
-            className='read-unread-outer mr-2'
-            style={{ fontSize: '24px' }}
-            onClick={() => {
-              this.setState((prevState) => ({
-                setRead: !prevState.setRead,
-              }));
+          <div className='col-10'>
+            <Link to={`/mail/${mail.id}`}>
+              <div className='d-flex w-100 justify-content-between'>
+                <h5 className='mb-1'>{mail.subject}</h5>
+                <small>{new Date(mail.sentAt).toDateString()}</small>
+              </div>
+              <p className='mb-1'>{mail.message}</p>
+              <small>
+                <span className='bold-grey'>From:</span> {mail.from}
+              </small>
+            </Link>
+            <small className='pointer' style={{ float: 'right' }}>
+              <div
+                className='read-unread-outer mr-2'
+                style={{ fontSize: '24px' }}
+                onClick={() => {
+                  this.setState((prevState) => ({
+                    setRead: !prevState.setRead,
+                  }));
 
-              setRead(mail, this.state.setRead);
-            }}
-          >
-            <div
-              className='read-unread-inner'
-              style={{ width: this.state.setRead ? '100%' : '0%' }}
-            ></div>
-          </div>
-          <div
-            className='stars-outer'
-            style={{ fontSize: '24px' }}
-            onClick={() => {
-              this.setState((prevState) => ({
-                isImportant: !prevState.isImportant,
-              }));
+                  setRead(mail, this.state.setRead);
+                }}
+              >
+                <div
+                  className='read-unread-inner'
+                  style={{ width: this.state.setRead ? '100%' : '0%' }}
+                ></div>
+              </div>
+              <div
+                className='stars-outer'
+                style={{ fontSize: '24px' }}
+                onClick={() => {
+                  this.setState((prevState) => ({
+                    isImportant: !prevState.isImportant,
+                  }));
 
-              setImportant(mail, this.state.isImportant);
-            }}
-          >
-            <div
-              className='stars-inner'
-              style={{ width: this.state.isImportant ? '100%' : '0%' }}
-            ></div>
+                  setImportant(mail, this.state.isImportant);
+                }}
+              >
+                <div
+                  className='stars-inner'
+                  style={{ width: this.state.isImportant ? '100%' : '0%' }}
+                ></div>
+              </div>
+            </small>
           </div>
-        </small>
+        </div>
       </div>
     );
   }
