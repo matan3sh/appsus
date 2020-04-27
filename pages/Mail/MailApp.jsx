@@ -94,7 +94,12 @@ export default class MailApp extends React.Component {
   };
 
   onRemoveMail = (mail) => {
-    mailService.remove(mail);
+    mailService
+      .remove(mail)
+      .then(() => {
+        console.log('Mail Was Removed Successfuly');
+      })
+      .catch((err) => console.log(err));
     this.loadMails();
   };
 

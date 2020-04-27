@@ -44,6 +44,7 @@ function remove(mail) {
   const mailIdx = _getIdxById(mail.id);
   gMails.splice(mailIdx, 1);
   storageService.store(KEY, gMails);
+  return Promise.resolve();
 }
 
 function sentMail(mail) {
