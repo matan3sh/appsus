@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import utilService from '../../../services/utilService.js';
-=======
-import utilService from '../../../services/utilService.js'
->>>>>>> 89749fd4febef13c017163b7598f606829ee2d96
 
 export default class FormText extends React.Component {
   state = {
@@ -25,11 +21,7 @@ export default class FormText extends React.Component {
           id: utilService.makeId(),
           type: 'NoteText',
           info: {
-<<<<<<< HEAD
             ...prevState.text.info,
-=======
-             ...prevState.text.info,
->>>>>>> 89749fd4febef13c017163b7598f606829ee2d96
             [field]: value,
           },
           style: { backgroundColor: '#0031a2' },
@@ -38,10 +30,6 @@ export default class FormText extends React.Component {
     });
   };
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 89749fd4febef13c017163b7598f606829ee2d96
   onSubmit = (e) => {
     e.preventDefault();
     console.log(456);
