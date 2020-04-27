@@ -25,7 +25,17 @@ const Navbar = ({ title, icon }) => {
               to='/mail'
               className='nav-link'
             >
-              Mail
+              Mails
+            </NavLink>
+          </li>
+          <li className='nav-item'>
+            <NavLink
+              activeClassName='nav-active'
+              exact
+              to='/book'
+              className='nav-link'
+            >
+              Books
             </NavLink>
           </li>
           <li className='nav-item'>

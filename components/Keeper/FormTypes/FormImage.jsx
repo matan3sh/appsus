@@ -69,7 +69,7 @@ export default class FormImage extends React.Component {
             onChange={this.onChange}
           />
           <button
-            className='btn btn-dark mt-3'
+            className='btn btn-dark mt-1'
             style={{ height: '40px', marginRight: '35px' }}
           >
             Add Note
