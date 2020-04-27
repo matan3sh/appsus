@@ -53,12 +53,12 @@ export default class FormText extends React.Component {
             name='txt'
             type='text'
             className='form-control'
-            placeholder='Add Text'
+            placeholder='Enter Text'
             value={this.state.text.info.txt}
             onChange={this.onChange}
           />
           <button
-            className='btn btn-dark '
+            className='btn btn-dark mt-1'
             style={{ height: '40px', marginRight: '35px' }}
           >
             Add Note

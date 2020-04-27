@@ -48,7 +48,7 @@ export default class FormTodos extends React.Component {
             name='label'
             type='text'
             className='form-control'
-            placeholder='Add Label'
+            placeholder='Enter List Title'
             value={this.state.todos.label}
             onChange={this.onChange}
           />
@@ -56,12 +56,12 @@ export default class FormTodos extends React.Component {
             name='txt'
             type='text'
             className='form-control '
-            placeholder='Add Todo'
+            placeholder='Enter Comma Separated List'
             value={this.state.todos.txt}
             onChange={this.onChange}
           />
           <button
-            className='btn btn-dark '
+            className='btn btn-dark mt-1'
             style={{ height: '40px', marginRight: '35px' }}
           >
             Add Note

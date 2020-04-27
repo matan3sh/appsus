@@ -208,6 +208,9 @@ a:hover {
 
 /* Keeper */
 .card-form {
+  display: flex;
+  justify-content: center;
+  text-align: center;
   padding: 0.2rem;
   border: #ccc 1px dashed;
   margin: 0.7rem 0;

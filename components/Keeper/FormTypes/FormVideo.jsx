@@ -55,7 +55,7 @@ export default class FormVideo extends React.Component {
             name='title'
             type='text'
             className='form-control'
-            placeholder='Add Text'
+            placeholder='Enter Video Title'
             value={this.state.video.info.title}
             onChange={this.onChange}
           />
@@ -63,12 +63,12 @@ export default class FormVideo extends React.Component {
             name='url'
             type='text'
             className='form-control '
-            placeholder='Add Video URL'
+            placeholder='Enter Video URL'
             value={this.state.video.info.url}
             onChange={this.onChange}
           />
           <button
-            className='btn btn-dark '
+            className='btn btn-dark mt-1'
             style={{ height: '40px', marginRight: '35px' }}
           >
             Add Note

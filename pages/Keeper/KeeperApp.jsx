@@ -28,11 +28,15 @@ export default class KeeperApp extends React.Component {
     return (
       <React.Fragment>
         <div className='row'>
+          <div className='col-md-2'></div>
           <div className='col-md-8'>
             <KeeperForm onUpdateNotes={this.onUpdateNotes} />
           </div>
+          <div className='col-md-2'></div>
         </div>
-        <div className='row card-columns mt-1'>{notes && <KeeperList notes={notes} />}</div>
+        <div className='row card-columns mt-1'>
+          {notes && <KeeperList notes={notes} />}
+        </div>
       </React.Fragment>
     );
   }

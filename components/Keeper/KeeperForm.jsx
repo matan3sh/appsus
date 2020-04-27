@@ -35,7 +35,7 @@ export default class KeeperForm extends React.Component {
   render() {
     const { isText, isImage, isVideo, isTodos } = this.state;
     return (
-      <div className='row  card-form'>
+      <div className='row card-form'>
         <div className='col-8'>
           {isText && <FormText onSaveText={this.onSaveText} />}
           {isImage && <FormImage onSaveImage={this.onSaveImage} />}
