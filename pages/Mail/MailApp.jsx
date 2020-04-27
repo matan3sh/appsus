@@ -28,8 +28,18 @@ export default class MailApp extends React.Component {
       .then((mails) => this.setState({ mails }));
   };
 
+  loadMailByCategory = () => {
+    mailService
+      .queryBy(this.state.filterByCategory)
+      .then((mails) => this.setState({ mails }));
+  };
+
   onSetFilter = (filterBy) => {
     this.setState({ filterBy }, () => this.loadMails());
+  };
+
+  onSetFilterByCategory = (filterByCategory) => {
+    this.setState({ filterByCategory }, () => this.loadMailByCategory());
   };
 
   displayInbox = () => {
@@ -166,7 +176,9 @@ export default class MailApp extends React.Component {
               <ProgressBar space={this.getAvaliableSpace()} />
             </div>
             <div className='col-9'>
-              <MailFilterBy onSetFilter={this.onSetFilter} />
+              <MailFilterBy
+                onSetFilterByCategory={this.onSetFilterByCategory}
+              />
               {mails && (
                 <MailList
                   showInbox={showInbox}

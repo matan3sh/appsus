@@ -9,6 +9,7 @@ export default {
   getAvaliableSpace,
   sentMail,
   remove,
+  queryBy,
 };
 
 const KEY = 'mails';
@@ -21,26 +22,20 @@ function _createMails() {
   storageService.store(KEY, gMails);
 }
 
-// function query(filterBy) {
-//   let mails = gMails;
-//   if (filterBy) {
-//     let { subject } = filterBy;
-//     mails = gMails.filter((mail) =>
-//       mail.subject.toUpperCase().includes(subject.toUpperCase())
-//     );
-//   }
-//   return Promise.resolve(mails);
-// }
-
 function query(filterBy) {
   let mails = gMails;
-  if (typeof filterBy === Object) {
+  if (filterBy) {
     let { subject } = filterBy;
     mails = gMails.filter((mail) =>
       mail.subject.toUpperCase().includes(subject.toUpperCase())
     );
-    return Promise.resolve(mails);
-  } else if (filterBy === 'Read') {
+  }
+  return Promise.resolve(mails);
+}
+
+function queryBy(filterBy) {
+  let mails = gMails;
+  if (filterBy === 'Read') {
     mails = gMails.filter((mail) => mail.read);
     return Promise.resolve(mails);
   } else if (filterBy === 'Unread') {

@@ -1,9 +1,9 @@
-const MailFilterBy = ({ onSetFilter }) => {
+const MailFilterBy = ({ onSetFilterByCategory }) => {
   return (
     <div className='form-group'>
       <select
         className='form-control'
-        onChange={(e) => onSetFilter(e.target.value)}
+        onChange={(e) => onSetFilterByCategory(e.target.value)}
       >
         <option className='male' value='All'>
           All
