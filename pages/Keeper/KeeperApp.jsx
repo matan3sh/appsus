@@ -32,7 +32,7 @@ export default class KeeperApp extends React.Component {
             <KeeperForm onUpdateNotes={this.onUpdateNotes} />
           </div>
         </div>
-        <div className='row mt-1'>{notes && <KeeperList notes={notes} />}</div>
+        <div className='row card-columns mt-1'>{notes && <KeeperList notes={notes} />}</div>
       </React.Fragment>
     );
   }
