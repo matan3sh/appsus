@@ -7,6 +7,7 @@ export default class KeeperApp extends React.Component {
     notes: null,
     filterBy: null,
     addNoteFlag: false,
+    isEditText: null,
   };
 
   componentDidMount() {
@@ -23,6 +24,18 @@ export default class KeeperApp extends React.Component {
     this.setState(({ addNoteFlag }) => ({ addNoteFlag: !addNoteFlag }));
   };
 
+  onDelete = (noteId) => {
+    keeperService
+      .remove(noteId)
+      .then(() => console.log('Note Removed'))
+      .catch((err) => console.log(err));
+    this.loadNotes();
+  };
+
+  onEditText = (note) => {
+    console.log(note);
+  };
+
   render() {
     const { notes } = this.state;
     return (
@@ -35,7 +48,7 @@ export default class KeeperApp extends React.Component {
           <div className='col-md-2'></div>
         </div>
         <div className='row card-columns mt-1'>
-          {notes && <KeeperList notes={notes} />}
+          {notes && <KeeperList notes={notes} onDelete={this.onDelete} />}
         </div>
       </React.Fragment>
     );

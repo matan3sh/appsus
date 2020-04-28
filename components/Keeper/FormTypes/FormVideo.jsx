@@ -63,7 +63,7 @@ export default class FormVideo extends React.Component {
             name='url'
             type='text'
             className='form-control '
-            placeholder='Enter Video URL'
+            placeholder='Enter Video URL (youtube.com/embed/...)'
             value={this.state.video.info.url}
             onChange={this.onChange}
           />

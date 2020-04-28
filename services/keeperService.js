@@ -4,6 +4,7 @@ import storageService from './storageService.js';
 export default {
   query,
   save,
+  remove,
 };
 
 const KEY = 'notes';
@@ -30,6 +31,13 @@ function query(filterBy) {
 function save(note) {
   gNotes.unshift(note);
   storageService.store(KEY, gNotes);
+}
+
+function remove(noteId) {
+  const noteIdx = _getIdxById(noteId);
+  gNotes.splice(noteIdx, 1);
+  storageService.store(KEY, gNotes);
+  return Promise.resolve();
 }
 
 function _getIdxById(noteId) {

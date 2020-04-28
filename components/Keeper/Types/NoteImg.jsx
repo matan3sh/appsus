@@ -1,7 +1,17 @@
-const NoteImg = ({ note }) => {
+const NoteImg = ({ note, onDelete }) => {
   return (
     <div className='card mt-3' style={{ maxWidth: '18rem' }}>
-      <img className='card-img-top' src={note.info.url} alt='Card image cap' />
+      <span
+        className='float-right text-dark pointer'
+        onClick={() => onDelete(note.id)}
+      >
+        X
+      </span>
+      <img
+        className='card-img-top radius'
+        src={note.info.url}
+        alt='Card image cap'
+      />
       <div className='card-body'>
         <p className='card-text'>{note.info.title}</p>
       </div>

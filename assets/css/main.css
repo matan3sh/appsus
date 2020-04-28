@@ -218,3 +218,7 @@ a:hover {
   background: var(--light-color);
   border-bottom: rgb(214, 214, 214) 5px solid;
 }
+
+.radius {
+  border-radius: 5px;
+}

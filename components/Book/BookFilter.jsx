@@ -80,7 +80,7 @@ export default class BookFilter extends React.Component {
           className='btn btn-dark btn-block my-1'
           onClick={this.openFilter}
         >
-          {this.state.openFilter ? 'Search' : 'Filter'}
+          {this.state.openFilter ? 'Close Filter' : 'Open Filter'}
         </button>
       </form>
     );
