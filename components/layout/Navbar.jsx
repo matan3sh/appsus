@@ -1,4 +1,4 @@
-const { NavLink } = ReactRouterDOM;
+const { NavLink, Link } = ReactRouterDOM;
 
 const Navbar = ({ title, icon }) => {
   return (
@@ -28,15 +28,26 @@ const Navbar = ({ title, icon }) => {
               Mails
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink
-              activeClassName='nav-active'
-              exact
-              to='/book'
-              className='nav-link'
+          <li class='dropdown show nav-item'>
+            <a
+              class='nav-link dropdown-toggle'
+              href='#'
+              role='button'
+              id='dropdownMenuLink'
+              data-toggle='dropdown'
+              aria-haspopup='true'
+              aria-expanded='false'
             >
               Books
-            </NavLink>
+            </a>
+            <div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
+              <Link class='dropdown-item' exact to='/book'>
+                Store
+              </Link>
+              <Link class='dropdown-item' exact to='/addbook'>
+                Google Books
+              </Link>
+            </div>
           </li>
           <li className='nav-item'>
             <NavLink

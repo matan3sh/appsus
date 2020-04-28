@@ -222,3 +222,17 @@ a:hover {
 .radius {
   border-radius: 5px;
 }
+
+.img-carousel {
+  opacity: 0.5;
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+.on-it {
+  height: 100px;
+  width: 100%;
+  background-color: #333;
+}
