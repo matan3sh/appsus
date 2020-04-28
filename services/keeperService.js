@@ -6,6 +6,7 @@ export default {
   save,
   remove,
   update,
+  saveBg,
 };
 
 const KEY = 'notes';
@@ -31,6 +32,12 @@ function query(filterBy) {
 
 function save(note) {
   gNotes.unshift(note);
+  storageService.store(KEY, gNotes);
+}
+
+function saveBg(note, color) {
+  const noteIdx = _getIdxById(note.id);
+  gNotes[noteIdx].style.backgroundColor = color;
   storageService.store(KEY, gNotes);
 }
 

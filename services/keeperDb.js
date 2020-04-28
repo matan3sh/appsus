@@ -6,6 +6,7 @@ const gDefaultKeepers = [
     info: {
       txt: 'Fullstack Me Baby!',
     },
+    style: { backgroundColor: '#f0ad4e' },
   },
   {
     id: 'gdg842697x',
@@ -14,7 +15,7 @@ const gDefaultKeepers = [
       url: 'https://i.ytimg.com/vi/7utqPvo79OI/maxresdefault.jpg',
       title: 'Me playing Mi',
     },
-    style: { backgroundColor: '#00d' },
+    style: { backgroundColor: '#f0ad4e' },
   },
   {
     id: 'dge25879xa',
@@ -34,6 +35,7 @@ const gDefaultKeepers = [
     info: {
       txt: 'JS is The Future!',
     },
+    style: { backgroundColor: '#5bc0de' },
   },
   {
     id: 'uyvbhj89632',

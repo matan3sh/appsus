@@ -24,6 +24,7 @@ export default class EditText extends React.Component {
       info: {
         txt: this.state.txt,
       },
+      style: this.props.note.backgroundColor,
     };
     keeperService.update(noteObj);
     this.props.toggleText();
