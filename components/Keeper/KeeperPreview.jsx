@@ -6,9 +6,21 @@ import NoteVideo from './Types/NoteVideo.jsx';
 const KeeperPreview = ({ note, noteType, onDelete, onUpdateNotes }) => {
   switch (noteType) {
     case 'NoteTodos':
-      return <NoteTodos note={note} onDelete={onDelete} />;
+      return ( 
+        <NoteTodos
+          note={note}
+          onDelete={onDelete}
+          onUpdateNotes={onUpdateNotes}
+        />
+      );
     case 'NoteImg':
-      return <NoteImg note={note} onDelete={onDelete} />;
+      return ( 
+        <NoteImg
+          note={note} 
+          onDelete={onDelete}
+          onUpdateNotes={onUpdateNotes}
+        />
+      );
     case 'NoteVideo':
       return (
         <NoteVideo

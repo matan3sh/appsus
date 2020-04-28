@@ -24,7 +24,7 @@ export default class NoteVideo extends React.Component {
           className='float-right text-dark pointer'
           onClick={() => onDelete(note.id)}
         >
-          X
+          <i className='fas fa-trash-alt'></i>
         </span>
         <span
           className='float-right text-dark pointer mr-2'

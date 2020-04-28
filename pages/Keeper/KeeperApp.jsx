@@ -32,10 +32,6 @@ export default class KeeperApp extends React.Component {
     this.loadNotes();
   };
 
-  onEditText = (note) => {
-    console.log(note);
-  };
-
   render() {
     const { notes } = this.state;
     return (
