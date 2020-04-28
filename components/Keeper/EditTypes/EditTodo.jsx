@@ -47,7 +47,7 @@ export default class EditTodo extends React.Component {
     return (
       <div
         className='card bg-secondary border-primary mb-3 mt-3'
-        style={{ maxWidth: '18rem' }}
+        style={{ minWidth: '18rem' }}
       >
         <span
           className='float-right text-light pointer'

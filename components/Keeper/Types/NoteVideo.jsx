@@ -19,7 +19,7 @@ export default class NoteVideo extends React.Component {
         />
       );
     return (
-      <div className='card mt-3' style={{ maxWidth: '18rem' }}>
+      <div className='card mt-3' style={{ minWidth: '18rem' }}>
         <span
           className='float-right text-dark pointer'
           onClick={() => onDelete(note.id)}

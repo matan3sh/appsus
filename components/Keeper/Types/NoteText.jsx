@@ -60,7 +60,7 @@ export default class NoteText extends React.Component {
         <div
           className={`card mb-3 mt-3`}
           style={{
-            maxWidth: '18rem',
+            minWidth: '18rem',
             backgroundColor: `${note.style.backgroundColor}`,
           }}
         >

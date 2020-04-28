@@ -43,7 +43,7 @@ export default class KeeperApp extends React.Component {
           </div>
           <div className='col-md-2'></div>
         </div>
-        <div className='row card-columns mt-1'>
+        <div className='card-columns mt-1'>
           {notes && (
             <KeeperList
               notes={notes}

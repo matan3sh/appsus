@@ -60,7 +60,7 @@ export default class NoteImg extends React.Component {
         <div
           className='card mt-3'
           style={{
-            maxWidth: '18rem',
+            minWidth: '18rem',
             backgroundColor: `${note.style.backgroundColor}`,
           }}
         >
