@@ -11,15 +11,17 @@ const gDefaultKeepers = [
   {
     id: 'gdg842697x',
     type: 'NoteImg',
+    isPinned: false,
     info: {
       url: 'https://i.ytimg.com/vi/7utqPvo79OI/maxresdefault.jpg',
       title: 'Me playing Mi',
     },
-    style: { backgroundColor: '#f0ad4e' },
+    style: { backgroundColor: '#d9534f' },
   },
   {
     id: 'dge25879xa',
     type: 'NoteTodos',
+    isPinned: false,
     info: {
       label: 'How was it:',
       todos: [
@@ -40,6 +42,7 @@ const gDefaultKeepers = [
   {
     id: 'uyvbhj89632',
     type: 'NoteVideo',
+    isPinned: false,
     info: {
       url: 'https://www.youtube.com/embed/ScMzIvxBSi4',
       title: 'New Video For Keeper',

@@ -38,6 +38,7 @@ export default class FormVideo extends React.Component {
       video: {
         id: utilService.makeId(),
         type: 'NoteVideo',
+        isPinned: false,
         info: {
           url: '',
           title: '',

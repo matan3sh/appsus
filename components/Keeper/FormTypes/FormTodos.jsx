@@ -31,6 +31,7 @@ export default class FormTodos extends React.Component {
     const todosObj = {
       id: utilService.makeId(),
       type: 'NoteTodos',
+      isPinned: false,
       info: {
         label: this.state.todos.label,
         todos: tempObj,

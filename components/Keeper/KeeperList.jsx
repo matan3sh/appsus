@@ -4,7 +4,7 @@ export default class KeeperList extends React.Component {
   state = {};
 
   render() {
-    const { notes, onDelete, onUpdateNotes } = this.props;
+    const { notes, onDelete, onUpdateNotes, onSave } = this.props;
     return (
       <React.Fragment>
         {notes.map((note) => (
@@ -14,6 +14,7 @@ export default class KeeperList extends React.Component {
               noteType={note.type}
               onDelete={onDelete}
               onUpdateNotes={onUpdateNotes}
+              onSave={onSave}
             />
           </div>
         ))}

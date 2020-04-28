@@ -39,6 +39,7 @@ export default class FormImage extends React.Component {
       image: {
         id: utilService.makeId(),
         type: 'NoteImg',
+        isPinned: false,
         info: {
           url: '',
           title: '',

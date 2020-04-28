@@ -3,10 +3,10 @@ import NoteText from './Types/NoteText.jsx';
 import NoteTodos from './Types/NoteTodos.jsx';
 import NoteVideo from './Types/NoteVideo.jsx';
 
-const KeeperPreview = ({ note, noteType, onDelete, onUpdateNotes }) => {
+const KeeperPreview = ({ note, noteType, onDelete, onUpdateNotes, onSave }) => {
   switch (noteType) {
     case 'NoteTodos':
-      return ( 
+      return (
         <NoteTodos
           note={note}
           onDelete={onDelete}
@@ -14,11 +14,12 @@ const KeeperPreview = ({ note, noteType, onDelete, onUpdateNotes }) => {
         />
       );
     case 'NoteImg':
-      return ( 
+      return (
         <NoteImg
-          note={note} 
+          note={note}
           onDelete={onDelete}
           onUpdateNotes={onUpdateNotes}
+          onSave={onSave}
         />
       );
     case 'NoteVideo':

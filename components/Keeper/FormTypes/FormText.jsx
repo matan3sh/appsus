@@ -20,6 +20,7 @@ export default class FormText extends React.Component {
         text: {
           id: utilService.makeId(),
           type: 'NoteText',
+          isPinned: false,
           info: {
             ...prevState.text.info,
             [field]: value,

@@ -32,6 +32,14 @@ export default class KeeperApp extends React.Component {
     this.loadNotes();
   };
 
+  onSave = (note) => {
+    note.isPinned = !note.isPinned;
+    if (!note.isPinned) keeperService.UnPinnedNote(note);
+    else keeperService.pinnedNote(note);
+    keeperService.save(note);
+    this.loadNotes();
+  };
+
   render() {
     const { notes } = this.state;
     return (
@@ -49,6 +57,7 @@ export default class KeeperApp extends React.Component {
               notes={notes}
               onDelete={this.onDelete}
               onUpdateNotes={this.onUpdateNotes}
+              onSave={this.onSave}
             />
           )}
         </div>

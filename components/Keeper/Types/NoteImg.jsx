@@ -91,6 +91,18 @@ export default class NoteImg extends React.Component {
           <div className='card-body'>
             <p className='card-text text-light'>{note.info.title}</p>
           </div>
+          <span
+            className={
+              this.props.note.isPinned
+                ? 'float-left text-dark'
+                : 'float-left text-light'
+            }
+            onClick={() => {
+              this.props.onSave(note);
+            }}
+          >
+            <i className='fas fa-thumbtack pointer'></i>
+          </span>
         </div>
       );
     }
