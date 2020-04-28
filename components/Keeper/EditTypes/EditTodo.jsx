@@ -3,15 +3,14 @@ import keeperService from '../../../services/keeperService.js';
 export default class EditTodo extends React.Component {
   state = {
     txt: this.props.note.info.txt,
-    label: this.props.note.info.label
+    label: this.props.note.info.label,
   };
 
   componentDidMount() {
-      
-      let str = '';
-      this.props.note.info.todos.forEach(todo => str += todo.txt);
-      let txt = str.split(' ').join(',');
-      this.setState({ txt });
+    let str = '';
+    this.props.note.info.todos.forEach((todo) => (str += todo.txt));
+    let txt = str.split(' ').join(',');
+    this.setState({ txt });
   }
 
   onChange = ({ target }) => {
@@ -26,18 +25,17 @@ export default class EditTodo extends React.Component {
   };
 
   onUpdate = () => {
-    let tempObj = [];  
     let todos = this.state.txt.split(',');
-    for (let i = 0; i < todos.length; i++) {
-        tempObj.push({ txt: todos[i], doneAt: null })
-    }   
+    const newTodos = todos.map((todo) => {
+      return { txt: todo, createdAt: null };
+    });
     const noteObj = {
       id: this.props.note.id,
       type: this.props.note.type,
       isPinned: this.props.note.isPinned,
       info: {
-          label: this.state.label,
-          todos: tempObj
+        label: this.state.label,
+        todos: newTodos,
       },
     };
     keeperService.update(noteObj);
@@ -66,14 +64,14 @@ export default class EditTodo extends React.Component {
         <div className='card-body text-light'>
           <h5 className='card-title'></h5>
           <p className='card-text'>
-              <input
-                type="text"
-                className="form-control"
-                placeholder=''
-                name='label'
-                value={this.state.label}
-                onChange={this.onChange}
-                />
+            <input
+              type='text'
+              className='form-control'
+              placeholder=''
+              name='label'
+              value={this.state.label}
+              onChange={this.onChange}
+            />
             <input
               type='text'
               className='form-control'
