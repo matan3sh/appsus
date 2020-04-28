@@ -5,6 +5,7 @@ export default {
   query,
   save,
   remove,
+  update,
 };
 
 const KEY = 'notes';
@@ -38,6 +39,12 @@ function remove(noteId) {
   gNotes.splice(noteIdx, 1);
   storageService.store(KEY, gNotes);
   return Promise.resolve();
+}
+
+function update(note) {
+  const noteIdx = _getIdxById(note.id);
+  gNotes[noteIdx] = note;
+  storageService.store(KEY, gNotes);
 }
 
 function _getIdxById(noteId) {

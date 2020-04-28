@@ -48,7 +48,13 @@ export default class KeeperApp extends React.Component {
           <div className='col-md-2'></div>
         </div>
         <div className='row card-columns mt-1'>
-          {notes && <KeeperList notes={notes} onDelete={this.onDelete} />}
+          {notes && (
+            <KeeperList
+              notes={notes}
+              onDelete={this.onDelete}
+              onUpdateNotes={this.onUpdateNotes}
+            />
+          )}
         </div>
       </React.Fragment>
     );
