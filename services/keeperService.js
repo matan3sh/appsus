@@ -7,6 +7,7 @@ export default {
   remove,
   update,
   saveBg,
+  saveDoneTodo,
 };
 
 const KEY = 'notes';
@@ -38,6 +39,12 @@ function save(note) {
 function saveBg(note, color) {
   const noteIdx = _getIdxById(note.id);
   gNotes[noteIdx].style.backgroundColor = color;
+  storageService.store(KEY, gNotes);
+}
+
+function saveDoneTodo(note, i, done) {
+  const noteIdx = _getIdxById(note.id);
+  gNotes[noteIdx].info.todos[i].doneAt = done;
   storageService.store(KEY, gNotes);
 }
 

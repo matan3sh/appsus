@@ -1,12 +1,22 @@
+import keeperService from '../../../services/keeperService.js';
 import EditTodo from '../EditTypes/EditTodo.jsx';
 
 export default class NoteTodos extends React.Component {
   state = {
     editTodo: false,
+    done: false,
   };
 
   toggleTodo = () => {
     this.setState(({ editTodo }) => ({ editTodo: !editTodo }));
+    this.props.onUpdateNotes();
+  };
+
+  toggleDoneTodo = (i) => {
+    if (!this.state.done)
+      keeperService.saveDoneTodo(this.props.note, i, Date.now());
+    else keeperService.saveDoneTodo(this.props.note, i, null);
+    this.setState(({ done }) => ({ done: !done }));
     this.props.onUpdateNotes();
   };
 
@@ -37,11 +47,21 @@ export default class NoteTodos extends React.Component {
         </span>
         <div className='card-header text-dark'>{note.info.label}</div>
         <ul className='list-group list-group-flush'>
-          {note.info.todos.map((todo, i) => (
-            <li className='list-group-item' key={i}>
-              {todo.txt}
-            </li>
-          ))}
+          {note.info.todos.map((todo, i) => {
+            return (
+              <li
+                className='list-group-item pointer'
+                style={{
+                  textDecoration:
+                    todo.doneAt !== null ? 'line-through' : 'none',
+                }}
+                onClick={() => this.toggleDoneTodo(i)}
+                key={i}
+              >
+                <span>{todo.txt}</span>
+              </li>
+            );
+          })}
         </ul>
       </div>
     );
