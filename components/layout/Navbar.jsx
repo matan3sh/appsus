@@ -28,10 +28,9 @@ const Navbar = ({ title, icon }) => {
               Mails
             </NavLink>
           </li>
-          <li class='dropdown show nav-item'>
+          <li className='dropdown show nav-item'>
             <a
-              class='nav-link dropdown-toggle'
-              href='#'
+              className='nav-link dropdown-toggle'
               role='button'
               id='dropdownMenuLink'
               data-toggle='dropdown'
@@ -40,11 +39,11 @@ const Navbar = ({ title, icon }) => {
             >
               Books
             </a>
-            <div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
-              <Link class='dropdown-item' exact to='/book'>
+            <div className='dropdown-menu' aria-labelledby='dropdownMenuLink'>
+              <Link className='dropdown-item' to='/book'>
                 Store
               </Link>
-              <Link class='dropdown-item' exact to='/addbook'>
+              <Link className='dropdown-item' to='/addbook'>
                 Google Books
               </Link>
             </div>
