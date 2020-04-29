@@ -87,6 +87,18 @@ export default class NoteText extends React.Component {
             <h5 className='card-title'></h5>
             <p className='card-text'>{note.info.txt}</p>
           </div>
+          <span
+            className={
+              this.props.note.isPinned
+                ? 'float-left text-dark'
+                : 'float-left text-light'
+            }
+            onClick={() => {
+              this.props.onSave(note);
+            }}
+          >
+            <i className='fas fa-thumbtack pointer'></i>
+          </span>
         </div>
       );
     }

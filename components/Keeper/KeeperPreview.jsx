@@ -11,6 +11,7 @@ const KeeperPreview = ({ note, noteType, onDelete, onUpdateNotes, onSave }) => {
           note={note}
           onDelete={onDelete}
           onUpdateNotes={onUpdateNotes}
+          onSave={onSave}
         />
       );
     case 'NoteImg':
@@ -28,6 +29,7 @@ const KeeperPreview = ({ note, noteType, onDelete, onUpdateNotes, onSave }) => {
           note={note}
           onDelete={onDelete}
           onUpdateNotes={onUpdateNotes}
+          onSave={onSave}
         />
       );
     default:
@@ -36,6 +38,7 @@ const KeeperPreview = ({ note, noteType, onDelete, onUpdateNotes, onSave }) => {
           note={note}
           onDelete={onDelete}
           onUpdateNotes={onUpdateNotes}
+          onSave={onSave}
         />
       );
   }
