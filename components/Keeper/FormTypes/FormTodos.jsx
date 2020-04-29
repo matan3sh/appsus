@@ -1,4 +1,5 @@
 import utilService from '../../../services/utilService.js';
+import eventBus from '../../../services/eventBusService.js'
 
 export default class FormTodos extends React.Component {
   state = {
@@ -23,6 +24,13 @@ export default class FormTodos extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    if (this.state.todos.txt === '' || this.state.todos.label === '') {
+      eventBus.emit('show-msg', {
+        txt: 'Error',
+        body: 'Please fill in all fields',
+      });
+      return;
+    }
     let todos = this.state.todos.txt.split(',');
     let tempObj = [];
     for (let i = 0; i < todos.length; i++) {
@@ -57,13 +65,19 @@ export default class FormTodos extends React.Component {
             name='txt'
             type='text'
             className='form-control '
-            placeholder='Enter Comma Separated List'
+            placeholder='Enter Comma and Space Separated List'
             value={this.state.todos.txt}
             onChange={this.onChange}
           />
           <button
             className='btn btn-dark mt-1'
             style={{ height: '40px', marginRight: '35px' }}
+            onClick={() => {
+              eventBus.emit('show-msg', {
+                txt: 'Todos note created Successfully',
+                body: '',
+              });
+            }}
           >
             Add Note
           </button>

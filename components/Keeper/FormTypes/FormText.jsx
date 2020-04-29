@@ -1,4 +1,5 @@
 import utilService from '../../../services/utilService.js';
+import eventBus from '../../../services/eventBusService.js'
 
 export default class FormText extends React.Component {
   state = {
@@ -33,6 +34,13 @@ export default class FormText extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    if (this.state.text.info.txt === '') {
+      eventBus.emit('show-msg', {
+        txt: 'Error',
+        body: 'Please fill in the field',
+      });
+      return;
+    }
     this.props.onSaveText(this.state.text);
     this.setState({
       text: {
@@ -61,6 +69,12 @@ export default class FormText extends React.Component {
           <button
             className='btn btn-dark mt-1'
             style={{ height: '40px', marginRight: '35px' }}
+            onClick={() => {
+              eventBus.emit('show-msg', {
+                txt: 'Text note created Successfully',
+                body: '',
+              });
+            }}
           >
             Add Note
           </button>

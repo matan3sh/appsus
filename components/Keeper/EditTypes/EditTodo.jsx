@@ -9,7 +9,7 @@ export default class EditTodo extends React.Component {
   componentDidMount() {
     let str = '';
     this.props.note.info.todos.forEach((todo) => (str += todo.txt));
-    let txt = str.split(' ').join(',');
+    let txt = str.split(' ').join(', ');
     this.setState({ txt });
   }
 

@@ -1,4 +1,5 @@
 import utilService from '../../../services/utilService.js';
+import eventBus from '../../../services/eventBusService.js'
 
 export default class FormImage extends React.Component {
   state = {
@@ -33,7 +34,13 @@ export default class FormImage extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(123);
+    if (this.state.image.info.url === '' || this.state.image.info.title === '') {
+      eventBus.emit('show-msg', {
+        txt: 'Error',
+        body: 'Please fill in all fields',
+      });
+      return;
+    }
     this.props.onSaveImage(this.state.image);
     this.setState({
       image: {
@@ -54,19 +61,19 @@ export default class FormImage extends React.Component {
       <form onSubmit={this.onSubmit}>
         <div className='form-group'>
           <input
-            name='title'
-            type='text'
-            className='form-control'
-            placeholder='Enter Image Title'
-            value={this.state.image.info.title}
-            onChange={this.onChange}
-          />
-          <input
             name='url'
             type='text'
             className='form-control'
             placeholder='Enter Image URL'
             value={this.state.image.info.url}
+            onChange={this.onChange}
+          />
+          <input
+            name='title'
+            type='text'
+            className='form-control'
+            placeholder='Enter Image Title'
+            value={this.state.image.info.title}
             onChange={this.onChange}
           />
           <button
