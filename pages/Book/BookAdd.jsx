@@ -56,7 +56,7 @@ export default class BookAdd extends React.Component {
                 value={bookName || ''}
                 onChange={this.onChange}
               />
-              <button className='btn btn-primary btn-block'>Search</button>
+              <button className='btn btn-dark btn-block'>Search</button>
             </form>
             {this.state.bookName === '' ? (
               <h1>Search From Google Books API</h1>

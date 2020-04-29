@@ -1,4 +1,4 @@
-import keeperService from '../../../services/keeperService.js'
+import keeperService from '../../../services/keeperService.js';
 import EditVideo from '../EditTypes/EditVideo.jsx';
 
 export default class NoteVideo extends React.Component {
@@ -42,17 +42,17 @@ export default class NoteVideo extends React.Component {
           <p className='card-text'>{note.info.title}</p>
         </div>
         <span
-            className={
-              this.props.note.isPinned
-                ? 'float-left text-dark'
-                : 'float-left text-white bg-dark'
-            }
-            onClick={() => {
-              this.props.onSave(note);
-            }}
-          >
-            <i className='fas fa-thumbtack pointer'></i>
-          </span>
+          className={
+            this.props.note.isPinned
+              ? 'float-left text-dark'
+              : 'float-left text-secondary'
+          }
+          onClick={() => {
+            this.props.onSave(note);
+          }}
+        >
+          <i className='fas fa-thumbtack pointer'></i>
+        </span>
       </div>
     );
   }
