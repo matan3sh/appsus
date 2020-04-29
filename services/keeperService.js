@@ -34,8 +34,7 @@ function query(filterBy) {
 }
 
 function save(note) {
-  const noteIdx = _getIdxById(note.id);
-  gNotes[noteIdx] = note;
+  gNotes.unshift(note);
   storageService.store(KEY, gNotes);
 }
 

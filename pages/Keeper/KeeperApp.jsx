@@ -36,7 +36,6 @@ export default class KeeperApp extends React.Component {
     note.isPinned = !note.isPinned;
     if (!note.isPinned) keeperService.UnPinnedNote(note);
     else keeperService.pinnedNote(note);
-    keeperService.save(note);
     this.loadNotes();
   };
 
