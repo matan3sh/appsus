@@ -10,6 +10,7 @@ export default {
   sentMail,
   remove,
   queryBy,
+  addReplayToMail,
 };
 
 const KEY = 'mails';
@@ -107,6 +108,8 @@ function getAvaliableSpace() {
     current: gMails.length,
   };
 }
+
+function addReplayToMail() {}
 
 function _getIdxById(mailId) {
   return gMails.findIndex((mail) => mail.id === mailId);

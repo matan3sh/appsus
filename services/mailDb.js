@@ -12,6 +12,15 @@ const gDefaultMails = [
     read: false,
     trash: false,
     preMode: '',
+    replays: [
+      {
+        id: 'rtgbnjuyt5',
+        from: 'me',
+        to: 'Linkedin',
+        sentAt: Date.now(),
+        message: 'Replays To Someone',
+      },
+    ],
   },
   {
     id: 'YTj93KOkq589',

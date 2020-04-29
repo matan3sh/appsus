@@ -64,17 +64,17 @@ export default class NoteTodos extends React.Component {
           })}
         </ul>
         <span
-            className={
-              this.props.note.isPinned
-                ? 'float-left text-dark'
-                : 'float-left text-light bg-dark'
-            }
-            onClick={() => {
-              this.props.onSave(note);
-            }}
-          >
-            <i className='fas fa-thumbtack pointer'></i>
-          </span>
+          className={
+            this.props.note.isPinned
+              ? 'float-left text-dark'
+              : 'float-left text-secondary '
+          }
+          onClick={() => {
+            this.props.onSave(note);
+          }}
+        >
+          <i className='fas fa-thumbtack pointer'></i>
+        </span>
       </div>
     );
   }
