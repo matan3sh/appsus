@@ -61,7 +61,9 @@ export default class NoteImg extends React.Component {
           className='card mt-3'
           style={{
             minWidth: '18rem',
-            backgroundColor: `${note.style.backgroundColor}`,
+            backgroundColor: note.style.backgroundColor
+              ? note.style.backgroundColor
+              : '#292b2c',
           }}
         >
           <i

@@ -40,7 +40,7 @@ function save(note) {
 
 function saveBg(note, color) {
   const noteIdx = _getIdxById(note.id);
-  gNotes[noteIdx].style.backgroundColor = color;
+  gNotes[noteIdx].style = { backgroundColor: color };
   storageService.store(KEY, gNotes);
 }
 

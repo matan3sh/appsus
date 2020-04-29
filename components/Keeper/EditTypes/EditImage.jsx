@@ -26,6 +26,7 @@ export default class EditImage extends React.Component {
         url: this.state.url,
         title: this.state.title,
       },
+      style: this.props.note.style,
     };
     keeperService.update(noteObj);
     this.props.toggleImage();
