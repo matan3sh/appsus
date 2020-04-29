@@ -61,19 +61,19 @@ export default class FormVideo extends React.Component {
       <form onSubmit={this.onSubmit}>
         <div className='form-group'>
           <input
-            name='url'
-            type='text'
-            className='form-control '
-            placeholder='Enter Video URL (youtube.com/embed/...)'
-            value={this.state.video.info.url}
-            onChange={this.onChange}
-          />
-          <input
             name='title'
             type='text'
             className='form-control'
             placeholder='Enter Video Title'
             value={this.state.video.info.title}
+            onChange={this.onChange}
+          />
+          <input
+            name='url'
+            type='text'
+            className='form-control '
+            placeholder='Enter Video URL (youtube.com/embed/...)'
+            value={this.state.video.info.url}
             onChange={this.onChange}
           />
           <button

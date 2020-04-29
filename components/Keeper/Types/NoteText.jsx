@@ -1,11 +1,13 @@
 import keeperService from '../../../services/keeperService.js';
 import ColorPicker from '../Cards/ColorPicker.jsx';
 import EditText from '../EditTypes/EditText.jsx';
+import LongTxt from '../LongTxt.jsx'
 
 export default class NoteText extends React.Component {
   state = {
     editText: false,
     openColorPicker: false,
+    longTxt: false
   };
 
   toggleText = () => {
@@ -43,6 +45,10 @@ export default class NoteText extends React.Component {
     }
     keeperService.saveBg(this.props.note, picker);
     this.props.onUpdateNotes();
+  };
+
+  onToggleLongTxt = () => {
+    this.setState(({ longTxt }) => ({ longTxt: !longTxt}))
   };
 
   render() {
@@ -87,7 +93,12 @@ export default class NoteText extends React.Component {
           </span>
           <div className='card-body text-light'>
             <h5 className='card-title'></h5>
-            <p className='card-text'>{note.info.txt}</p>
+            {/* <p className='card-text'>{note.info.txt}</p> */}
+            <LongTxt
+            text={note.info.txt}
+            longTxt={this.state.longTxt}
+            onToggleLongTxt={this.onToggleLongTxt}
+            />
           </div>
           <span
             className={

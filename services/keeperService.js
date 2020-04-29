@@ -9,7 +9,7 @@ export default {
   saveBg,
   saveDoneTodo,
   pinnedNote,
-  UnPinnedNote,
+  unPinnedNote,
 };
 
 const KEY = 'notes';
@@ -56,7 +56,7 @@ function pinnedNote(note) {
   gNotes.unshift(note);
 }
 
-function UnPinnedNote(note) {
+function unPinnedNote(note) {
   const noteIdx = _getIdxById(note.id);
   gNotes.splice(noteIdx, 1);
   gNotes.push(note);

@@ -2,7 +2,7 @@ const About = () => {
   return (
     <div className='row'>
       <div className='col-6'>
-        <section class='card-about mt-5'>
+        <section className='card-about mt-5'>
           <img src='assets/img/about/matan.jpeg' alt='' />
           <div>
             <p className='text-left'>
@@ -39,15 +39,12 @@ const About = () => {
         </section>
       </div>
       <div className='col-6'>
-        <section class='card-about mt-5'>
+        <section className='card-about mt-5'>
           <img src='assets/img/about/max.jpg' alt='' />
           <div>
             <p className='text-left'>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro
-              quos ipsum molestias illum aspernatur odit velit exercitationem?
-              Aperiam exercitationem officiis ex quidem esse autem! Adipisci
-              fuga animi harum labore consequuntur ullam deserunt natus maxime
-              dolore?
+              My name is <em>Max Dubovsky</em>, most of my life I have been involved with computers and in the last 4 years I have worked with computers and also projectors in 2 cinemas in the city of Beer Sheva.
+              Right now I'm learning JS, React and everything else which is related to website building. 
             </p>
             <div>
               <a

@@ -61,19 +61,19 @@ export default class FormImage extends React.Component {
       <form onSubmit={this.onSubmit}>
         <div className='form-group'>
           <input
-            name='url'
-            type='text'
-            className='form-control'
-            placeholder='Enter Image URL'
-            value={this.state.image.info.url}
-            onChange={this.onChange}
-          />
-          <input
             name='title'
             type='text'
             className='form-control'
             placeholder='Enter Image Title'
             value={this.state.image.info.title}
+            onChange={this.onChange}
+          />
+          <input
+            name='url'
+            type='text'
+            className='form-control'
+            placeholder='Enter Image URL'
+            value={this.state.image.info.url}
             onChange={this.onChange}
           />
           <button

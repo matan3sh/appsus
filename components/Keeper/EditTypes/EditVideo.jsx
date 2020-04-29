@@ -56,17 +56,17 @@ export default class EditVideo extends React.Component {
             <input
               type='text'
               className='form-control'
-              placeholder='youtube.com/embed/...'
-              name='url'
-              value={this.state.url}
+              placeholder=''
+              name='title'
+              value={this.state.title}
               onChange={this.onChange}
             />
             <input
               type='text'
               className='form-control'
-              placeholder=''
-              name='title'
-              value={this.state.title}
+              placeholder='youtube.com/embed/...'
+              name='url'
+              value={this.state.url}
               onChange={this.onChange}
             />
             <button className='btn btn-light text-dark' onClick={this.onUpdate}>

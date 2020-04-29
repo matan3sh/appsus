@@ -57,17 +57,17 @@ export default class EditImage extends React.Component {
             <input
               type='text'
               className='form-control'
-              placeholder='https://www...'
-              name='url'
-              value={this.state.url}
+              placeholder=''
+              name='title'
+              value={this.state.title}
               onChange={this.onChange}
             />
             <input
               type='text'
               className='form-control'
-              placeholder=''
-              name='title'
-              value={this.state.title}
+              placeholder='https://www...'
+              name='url'
+              value={this.state.url}
               onChange={this.onChange}
             />
             <button className='btn btn-light text-dark' onClick={this.onUpdate}>
